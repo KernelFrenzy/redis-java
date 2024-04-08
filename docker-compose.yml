@@ -1,0 +1,14 @@
+version: "3.8"  # Specify the docker-compose version
+
+services:
+  redis-java:
+    container_name: redis-java
+    image: redis:latest  # Use the latest official Redis image
+    ports:
+      - "6379:6379"  # Map container port 6379 to host port 6379
+    volumes:
+      - redis_java_data:/data  # Persist data using a named volume
+    restart: always  # Restart the container automatically on failure
+
+volumes:
+  redis_java_data:  # Define a named volume for Redis data persistence
